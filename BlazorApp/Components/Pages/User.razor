@@ -1,0 +1,90 @@
+﻿@* enable data binding on server *@
+@rendermode InteractiveServer
+
+@page "/user"
+
+@using DataAcessLibrary
+@using DataAcessLibrary.Models
+@using BlazorApp.Models
+
+@inject IUserData _db
+
+<h3>User</h3>
+<h4>Users (@count)</h4>
+
+<h4>Add new user</h4>
+
+<EditForm FormName="newuser" Model="@newUser" OnValidSubmit="@AddUser" class="align-content-center">
+
+	<InputText id="username" @bind-Value="newUser.username" />
+	<InputText id="password" @bind-Value="newUser.password" />
+
+	<button type="submit" class="btn btn-primary">Submit</button>
+	
+</EditForm>
+
+@if(users is null){
+	<p><em>Loading.....</em></p>
+}else{
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Password</th>
+				<th>Date Created</th>
+				<th>Date Updated</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var user in users)
+			{
+				<tr>
+					<td>@user.username</td>
+					<td>@user.password</td>
+					<td>@user.datecreated</td>
+					<td>@user.dateupdated</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+
+@code {
+	private List<UserModel> users;
+
+	private int count = 0;
+	private FormUserModel newUser = new FormUserModel();
+
+	protected override async Task  OnInitializedAsync()
+	{
+		users = await _db.GetUsers();
+		count = users.Count;
+	}
+
+
+	private async Task AddUser()
+	{
+		UserModel u = new UserModel
+		{
+			username = newUser.username,
+			password = newUser.password
+		};
+
+		var User = await _db.GetUser(u);
+
+		if (User.Count > 0)
+		{
+			await _db.UpdateUser(u);
+			users = await _db.GetUsers();
+			count = users.Count;
+		}
+		else
+		{
+			await _db.InsertUser(u);
+			users.Add(u);
+			count++;
+		}
+		
+		newUser = new FormUserModel();
+	}
+}
