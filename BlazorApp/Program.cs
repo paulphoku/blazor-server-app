@@ -1,4 +1,5 @@
 using BlazorApp.Components;
+using Blazored.Modal;
 using DataAcessLibrary;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,6 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddTransient<IUserData, UserData>();
-
 
 var app = builder.Build();
 

@@ -10,3 +10,4 @@ C:\Users\Thabang Phoku\source\repos\BlazorApp\DataAcessLibrary\obj\Debug\net8.0\
 C:\Users\Thabang Phoku\source\repos\BlazorApp\DataAcessLibrary\obj\Debug\net8.0\refint\DataAcessLibrary.dll
 C:\Users\Thabang Phoku\source\repos\BlazorApp\DataAcessLibrary\obj\Debug\net8.0\DataAcessLibrary.pdb
 C:\Users\Thabang Phoku\source\repos\BlazorApp\DataAcessLibrary\obj\Debug\net8.0\ref\DataAcessLibrary.dll
+C:\Users\Thabang Phoku\source\repos\BlazorApp\DataAcessLibrary\obj\Debug\net8.0\DataAcessLibrary.sourcelink.json

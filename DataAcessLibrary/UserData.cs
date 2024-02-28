@@ -17,17 +17,7 @@ namespace DataAcessLibrary
 			_db = db;
 		}
 
-		public Task<List<UserModel>> GetUsers()
-		{
-			string sql = "SELECT * FROM _USER";
-			return _db.LoadData<UserModel, dynamic>(sql, new { });
-		}
-
-		public Task<List<UserModel>> GetUser(UserModel user)
-		{
-			string sql = "SELECT * FROM _USER WHERE username = @username";
-			return _db.LoadData<UserModel, dynamic>(sql, new { user.username });
-		}
+		
 
 		public Task InsertUser(UserModel user)
 		{
@@ -45,5 +35,25 @@ namespace DataAcessLibrary
 			string sql = @"EXEC updateUser @username, @password, @dateupdated";
 			return _db.SaveData(sql, user);
 		}
+
+		public Task deleteUser(UserModel user)
+		{
+
+			string sql = @"EXEC deleteUser @username";
+			return _db.SaveData(sql, user);
+		}
+
+		public Task<List<UserModel>> GetUsers()
+		{
+			string sql = "SELECT * FROM _USER";
+			return _db.LoadData<UserModel, dynamic>(sql, new { });
+		}
+
+		public Task<List<UserModel>> GetUser(UserModel user)
+		{
+			string sql = "SELECT * FROM _USER WHERE username = @username";
+			return _db.LoadData<UserModel, dynamic>(sql, new { user.username });
+		}
 	}
+
 }

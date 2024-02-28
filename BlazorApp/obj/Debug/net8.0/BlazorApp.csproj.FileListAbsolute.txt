@@ -39,3 +39,13 @@ C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\DataAce
 C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\DataAcessLibrary.pdb
 C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\obj\Debug\net8.0\BlazorApp.csproj.AssemblyReference.cache
 C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\obj\Debug\net8.0\BlazorApp.csproj.CopyComplete
+C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\obj\Debug\net8.0\BlazorApp.sourcelink.json
+C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\Blazored.Modal.dll
+C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\Microsoft.JSInterop.dll
+C:\Users\Thabang Phoku\source\repos\BlazorApp\BlazorApp\bin\Debug\net8.0\Microsoft.JSInterop.WebAssembly.dll

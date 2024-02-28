@@ -1,4 +1,4 @@
-﻿@* enable data binding on server *@
+﻿﻿@* enable data binding on server *@
 @rendermode InteractiveServer
 
 @page "/user"
@@ -6,6 +6,7 @@
 @using DataAcessLibrary
 @using DataAcessLibrary.Models
 @using BlazorApp.Models
+
 
 @inject IUserData _db
 
@@ -33,6 +34,7 @@
 				<th>Password</th>
 				<th>Date Created</th>
 				<th>Date Updated</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -43,15 +45,19 @@
 					<td>@user.password</td>
 					<td>@user.datecreated</td>
 					<td>@user.dateupdated</td>
+					<td>
+						<button @onclick="(() => DeleteUser(user.username))" class="btn btn-danger">Delete</button>
+					</td>
 				</tr>
 			}
 		</tbody>
 	</table>
 }
 
-@code {
-	private List<UserModel> users;
+<ModalDialog></ModalDialog>
 
+@code {
+    private List<UserModel> users;
 	private int count = 0;
 	private FormUserModel newUser = new FormUserModel();
 
@@ -61,6 +67,17 @@
 		count = users.Count;
 	}
 
+	private async Task DeleteUser(string username)
+	{
+		UserModel u = new UserModel
+			{
+				username = username
+			};
+
+		await  _db.deleteUser(u);
+		users = await _db.GetUsers();
+		count = users.Count;
+	}
 
 	private async Task AddUser()
 	{
@@ -69,21 +86,10 @@
 			username = newUser.username,
 			password = newUser.password
 		};
-
-		var User = await _db.GetUser(u);
-
-		if (User.Count > 0)
-		{
-			await _db.UpdateUser(u);
-			users = await _db.GetUsers();
-			count = users.Count;
-		}
-		else
-		{
-			await _db.InsertUser(u);
-			users.Add(u);
-			count++;
-		}
+	
+		await _db.InsertUser(u);
+		users = await _db.GetUsers();
+		count = users.Count;
 		
 		newUser = new FormUserModel();
 	}
